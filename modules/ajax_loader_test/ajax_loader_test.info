@@ -1,0 +1,7 @@
+name = "Ajax loader Test"
+description = "Ajax loader test module"
+package = "User Interface"
+core = "7.x"
+hidden = TRUE
+
+files[] = ThrobberTest.php

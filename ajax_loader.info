@@ -1,0 +1,27 @@
+name = "Ajax Loader"
+description = "Provides alternative ajax loaders."
+package = "User Interface"
+core = "7.x"
+
+configure = admin/config/user-interface/ajax-loader
+
+files[] = ajax_loader.test
+
+;lib/*
+files[] = lib/ThrobberManager.php
+files[] = lib/ThrobberTypes.php
+
+; lib/throbber/*
+files[] = lib/throbber/ThrobberBase.php
+files[] = lib/throbber/ThrobberChasingDots.php
+files[] = lib/throbber/ThrobberCircle.php
+files[] = lib/throbber/ThrobberCubeGrid.php
+files[] = lib/throbber/ThrobberDoubleBounce.php
+files[] = lib/throbber/ThrobberFadingCircle.php
+files[] = lib/throbber/ThrobberFoldingCube.php
+files[] = lib/throbber/ThrobberInterface.php
+files[] = lib/throbber/ThrobberPulse.php
+files[] = lib/throbber/ThrobberRotatingPlane.php
+files[] = lib/throbber/ThrobberThreeBounce.php
+files[] = lib/throbber/ThrobberWanderingCubes.php
+files[] = lib/throbber/ThrobberWave.php
