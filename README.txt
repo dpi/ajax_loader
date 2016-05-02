@@ -14,11 +14,14 @@ Configuration
 -------------
 To enable and configure this module do the following:
 
-1. Go to Admin -> Modules, and enable "Ajax throbber".
+1. Go to Admin -> Extend, and enable "Ajax loader".
 
-2. Go to Admin -> Configuration -> User Interface -> Ajax throbber, and make
+2. Go to Admin -> Configuration -> User Interface -> Ajax loader, and make
    any necessary configuration changes.
 
 3. You are done, the default ajax throbber is now sexy!
 
-4. Check ajax_throbber.api.php to add your own throbbers.
+Extend
+------
+Define your own "throbber" plugins to add custom throbbers. See src/Plugin/ajax_loader for examples.
+
