@@ -1,9 +1,11 @@
 <?php
 
+namespace Drupal\ajax_loader;
+
 /**
  * Interface ThrobberInterface
  */
-interface ThrobberInterface {
+interface ThrobberPluginInterface {
 
   /**
    * Returns markup for throbber.

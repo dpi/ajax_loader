@@ -1,9 +1,16 @@
 <?php
 
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
 /**
- * Class ThrobberWanderingCubes
+ * @Throbber(
+ *   id = "throbber_wandering_cubes",
+ *   label = @Translation("Wandering cubes")
+ * )
  */
-class ThrobberWanderingCubes extends ThrobberBase {
+class ThrobberWanderingCubes extends ThrobberPluginBase{
 
   /**
    * @inheritdoc
@@ -20,13 +27,6 @@ class ThrobberWanderingCubes extends ThrobberBase {
    */
   protected function setCssFile() {
     return $this->path . '/css/wandering-cubes.css';
-  }
-
-  /**
-   * @inheritdoc
-   */
-  protected function setLabel() {
-    return 'Wandering cubes';
   }
 
 }

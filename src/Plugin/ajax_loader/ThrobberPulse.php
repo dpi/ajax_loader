@@ -1,9 +1,16 @@
 <?php
 
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
 /**
- * Class ThrobberPulse
+ * @Throbber(
+ *   id = "throbber_pulse",
+ *   label = @Translation("Pulse")
+ * )
  */
-class ThrobberPulse extends ThrobberBase {
+class ThrobberPulse extends ThrobberPluginBase {
 
   /**
    * @inheritdoc
@@ -18,12 +25,4 @@ class ThrobberPulse extends ThrobberBase {
   protected function setCssFile() {
     return $this->path . '/css/pulse.css';
   }
-
-  /**
-   * @inheritdoc
-   */
-  protected function setLabel() {
-    return 'Pulse';
-  }
-
 }

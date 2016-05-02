@@ -1,9 +1,16 @@
 <?php
 
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
 /**
- * Class ThrobberChasingDots
+ * @Throbber(
+ *   id = "throbber_chasing_dots",
+ *   label = @Translation("Chasing dots")
+ * )
  */
-class ThrobberChasingDots extends ThrobberBase {
+class ThrobberChasingDots extends ThrobberPluginBase {
 
   /**
    * @inheritdoc
@@ -20,13 +27,6 @@ class ThrobberChasingDots extends ThrobberBase {
    */
   protected function setCssFile() {
     return $this->path . '/css/chasing-dots.css';
-  }
-
-  /**
-   * @inheritdoc
-   */
-  protected function setLabel() {
-    return 'Chasing dots';
   }
 
 }

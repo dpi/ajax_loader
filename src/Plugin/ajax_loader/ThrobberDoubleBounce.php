@@ -1,9 +1,16 @@
 <?php
 
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
 /**
- * Class ThrobberDoubleBounce
+ * @Throbber(
+ *   id = "throbber_double_bounce",
+ *   label = @Translation("Double bounce")
+ * )
  */
-class ThrobberDoubleBounce extends ThrobberBase {
+class ThrobberDoubleBounce extends ThrobberPluginBase {
 
   /**
    * @inheritdoc
@@ -20,13 +27,6 @@ class ThrobberDoubleBounce extends ThrobberBase {
    */
   protected function setCssFile() {
     return $this->path . '/css/double-bounce.css';
-  }
-
-  /**
-   * @inheritdoc
-   */
-  protected function setLabel() {
-    return 'Double bounce';
   }
 
 }

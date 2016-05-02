@@ -1,9 +1,16 @@
 <?php
 
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
 /**
- * Class ThrobberFoldingCube
+ * @Throbber(
+ *   id = "throbber_folding_cube",
+ *   label = @Translation("Folding cube")
+ * )
  */
-class ThrobberFoldingCube extends ThrobberBase {
+class ThrobberFoldingCube extends ThrobberPluginBase {
 
   /**
    * @inheritdoc
@@ -22,13 +29,6 @@ class ThrobberFoldingCube extends ThrobberBase {
    */
   protected function setCssFile() {
     return $this->path . '/css/folding-cube.css';
-  }
-
-  /**
-   * @inheritdoc
-   */
-  protected function setLabel() {
-    return 'Folding cube';
   }
 
 }

@@ -1,9 +1,16 @@
 <?php
 
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
 /**
- * Class ThrobberRotatingPlane
+ * @Throbber(
+ *   id = "throbber_rotating_plane",
+ *   label = @Translation("Rotating plane")
+ * )
  */
-class ThrobberRotatingPlane extends ThrobberBase {
+class ThrobberRotatingPlane extends ThrobberPluginBase {
 
   /**
    * @inheritdoc
@@ -17,13 +24,6 @@ class ThrobberRotatingPlane extends ThrobberBase {
    */
   protected function setCssFile() {
     return $this->path . '/css/rotating-plane.css';
-  }
-
-  /**
-   * @inheritdoc
-   */
-  protected function setLabel() {
-    return 'Rotating plane';
   }
 
 }

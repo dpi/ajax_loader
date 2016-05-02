@@ -1,9 +1,16 @@
 <?php
 
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
 /**
- * Class ThrobberCircle
+ * @Throbber(
+ *   id = "throbber_circle",
+ *   label = @Translation("Circle")
+ * )
  */
-class ThrobberCircle extends ThrobberBase {
+class ThrobberCircle extends ThrobberPluginBase {
 
   /**
    * @inheritdoc
@@ -31,12 +38,4 @@ class ThrobberCircle extends ThrobberBase {
   protected function setCssFile() {
     return $this->path . '/css/circle.css';
   }
-
-  /**
-   * @inheritdoc
-   */
-  protected function setLabel() {
-    return 'Circle';
-  }
-
 }

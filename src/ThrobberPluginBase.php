@@ -1,9 +1,13 @@
 <?php
 
+namespace Drupal\ajax_loader;
+
+use Drupal\Core\Plugin\PluginBase;
+
 /**
  * Class ThrobberBase
  */
-abstract class ThrobberBase implements ThrobberInterface {
+abstract class ThrobberPluginBase extends PluginBase implements ThrobberPluginInterface {
 
   protected $path;
   protected $markup;
@@ -12,14 +16,19 @@ abstract class ThrobberBase implements ThrobberInterface {
 
 
   /**
-   * ThrobberBase constructor.
+   * ThrobberPluginBase constructor.
+   * @param array $configuration
+   * @param string $plugin_id
+   * @param mixed $plugin_definition
    */
-  public function __construct() {
-    $this->path = drupal_get_path('module', 'ajax_loader');
+  public function __construct(array $configuration, $plugin_id, $plugin_definition) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+
+    $this->path = '/' . drupal_get_path('module', 'ajax_loader');
     $this->markup = $this->setMarkup();
     $this->css_file = $this->setCssFile();
-    $this->label = $this->setLabel();
   }
+
 
   /**
    * @return mixed
@@ -39,7 +48,7 @@ abstract class ThrobberBase implements ThrobberInterface {
    * @return mixed
    */
   public function getLabel() {
-    return $this->label;
+    return $this->configuration['label'];
   }
 
   /**
@@ -51,10 +60,5 @@ abstract class ThrobberBase implements ThrobberInterface {
    * Sets css file for throbber.
    */
   protected abstract function setCssFile();
-
-  /**
-   * Sets label for throbber.
-   */
-  protected abstract function setLabel();
 
 }

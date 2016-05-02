@@ -1,0 +1,4 @@
+services:
+  ajax_loader.throbber_manager:
+    class: Drupal\ajax_loader\ThrobberManager
+    parent: default_plugin_manager

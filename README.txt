@@ -1,6 +1,6 @@
 Description
 -----------
-This module allows you to change the default drupal ajax throbber.
+This module provides allows you to change the default drupal ajax throbber.
 
 Installation
 ------------
@@ -14,11 +14,11 @@ Configuration
 -------------
 To enable and configure this module do the following:
 
-1. Go to Admin -> Modules, and enable "Ajax loader".
+1. Go to Admin -> Modules, and enable "Ajax throbber".
 
-2. Go to Admin -> Configuration -> User Interface -> Ajax loader, and make
+2. Go to Admin -> Configuration -> User Interface -> Ajax throbber, and make
    any necessary configuration changes.
 
 3. You are done, the default ajax throbber is now sexy!
 
-4. Check ajax_loader.api.php to add your own throbbers.
+4. Check ajax_throbber.api.php to add your own throbbers.

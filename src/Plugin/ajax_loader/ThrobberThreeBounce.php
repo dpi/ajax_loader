@@ -1,9 +1,16 @@
 <?php
 
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
 /**
- * Class ThrobberThreeBounce
+ * @Throbber(
+ *   id = "throbber_three_bounce",
+ *   label = @Translation("Three bounce")
+ * )
  */
-class ThrobberThreeBounce extends ThrobberBase {
+class ThrobberThreeBounce extends ThrobberPluginBase {
 
   /**
    * @inheritdoc
@@ -21,13 +28,6 @@ class ThrobberThreeBounce extends ThrobberBase {
    */
   protected function setCssFile() {
     return $this->path . '/css/three-bounce.css';
-  }
-
-  /**
-   * @inheritdoc
-   */
-  protected function setLabel() {
-    return 'Three bounce';
   }
 
 }

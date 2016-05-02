@@ -1,9 +1,16 @@
 <?php
 
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
 /**
- * Class ThrobberCubeGrid
+ * @Throbber(
+ *   id = "throbber_cube_grid",
+ *   label = @Translation("Cube gird")
+ * )
  */
-class ThrobberCubeGrid extends ThrobberBase {
+class ThrobberCubeGrid extends ThrobberPluginBase {
 
   /**
    * @inheritdoc
@@ -27,13 +34,6 @@ class ThrobberCubeGrid extends ThrobberBase {
    */
   protected function setCssFile() {
     return $this->path . '/css/cube-grid.css';
-  }
-
-  /**
-   * @inheritdoc
-   */
-  protected function setLabel() {
-    return 'Cube grid';
   }
 
 }

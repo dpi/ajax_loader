@@ -1,9 +1,16 @@
 <?php
 
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
 /**
- * Class ThrobberWave
+ * @Throbber(
+ *   id = "throbber_wave",
+ *   label = @Translation("Wave")
+ * )
  */
-class ThrobberWave extends ThrobberBase {
+class ThrobberWave extends ThrobberPluginBase {
 
   /**
    * @inheritdoc
@@ -24,12 +31,4 @@ class ThrobberWave extends ThrobberBase {
   protected function setCssFile() {
     return $this->path . '/css/wave.css';
   }
-
-  /**
-   * @inheritdoc
-   */
-  protected function setLabel() {
-    return 'Wave';
-  }
-
 }

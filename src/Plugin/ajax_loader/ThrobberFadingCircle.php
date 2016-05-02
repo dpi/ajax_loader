@@ -1,9 +1,16 @@
 <?php
 
+namespace Drupal\ajax_loader\Plugin\ajax_loader;
+
+use Drupal\ajax_loader\ThrobberPluginBase;
+
 /**
- * Class ThrobberFadingCircle
+ * @Throbber(
+ *   id = "throbber_fading_circle",
+ *   label = @Translation("Fading circle")
+ * )
  */
-class ThrobberFadingCircle extends ThrobberBase {
+class ThrobberFadingCircle extends ThrobberPluginBase {
 
   /**
    * @inheritdoc
@@ -30,13 +37,6 @@ class ThrobberFadingCircle extends ThrobberBase {
    */
   protected function setCssFile() {
     return $this->path . '/css/fading-circle.css';
-  }
-
-  /**
-   * @inheritdoc
-   */
-  protected function setLabel() {
-    return 'Fading circle';
   }
 
 }
