@@ -8,6 +8,14 @@ namespace Drupal\ajax_loader;
 interface ThrobberManagerInterface {
 
   /**
+   * Returns the definition of a plugin by a given plugin ID.
+   * @param $plugin_id
+   * @param $exception_on_invalid
+   * @return mixed
+   */
+  public function getDefinition($plugin_id, $exception_on_invalid);
+
+  /**
    * Get an options list suitable for form elements for throbber selection.
    *
    * @return array

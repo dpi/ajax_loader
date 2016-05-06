@@ -72,19 +72,22 @@ class AjaxLoaderSettingsForm extends ConfigFormBase {
     );
 
     if (!empty($form_state->getValue('throbber')) || !empty($settings->get('throbber'))) {
-      // Show preview of throbber.
-      if (!empty($form_state->getValue('throbber'))) {
-        $throbber = $this->throbberManager->loadThrobberInstance($form_state->getValue('throbber'));
-      }
-      else {
-        $throbber = $this->throbberManager->loadThrobberInstance($settings->get('throbber'));
-      }
+      $plugin_id = !empty($form_state->getValue('throbber')) ? $form_state->getValue('throbber') : $settings->get('throbber');
+      if ($this->throbberManager->getDefinition($plugin_id, FALSE)) {
+        // Show preview of throbber.
+        if (!empty($form_state->getValue('throbber'))) {
+          $throbber = $this->throbberManager->loadThrobberInstance($form_state->getValue('throbber'));
+        }
+        else {
+          $throbber = $this->throbberManager->loadThrobberInstance($settings->get('throbber'));
+        }
 
-      $form['wrapper']['throbber']['#attached']['library'] = array(
-        'ajax_loader/ajax_loader.admin',
-      );
+        $form['wrapper']['throbber']['#attached']['library'] = array(
+          'ajax_loader/ajax_loader.admin',
+        );
 
-      $form['wrapper']['throbber']['#suffix'] = '<span class="throbber-example">' . $throbber->getMarkup() . '</span>';
+        $form['wrapper']['throbber']['#suffix'] = '<span class="throbber-example">' . $throbber->getMarkup() . '</span>';
+      }
     }
 
     $form['hide_ajax_message'] = array(
