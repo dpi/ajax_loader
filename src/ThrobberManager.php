@@ -66,7 +66,7 @@ class ThrobberManager extends DefaultPluginManager implements ThrobberManagerInt
    */
   public function RouteIsApplicable() {
     $is_applicable = FALSE;
-    $settings = $this->configFactory->get('ajax_throbber.settings');
+    $settings = $this->configFactory->get('ajax_loader.settings');
     $is_admin_route = $this->adminContext->isAdminRoute();
     $current_route_name = $this->request->attributes->get('_route');
 

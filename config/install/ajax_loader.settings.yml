@@ -1,0 +1,4 @@
+throbber:
+hide_ajax_message: false
+always_fullscreen: false
+show_admin_paths: false
