@@ -62,7 +62,6 @@ class AjaxLoaderSettingsForm extends ConfigFormBase {
       '#type' => 'select',
       '#title' => t('Throbber'),
       '#description' => t('Choose your throbber'),
-      '#required' => TRUE,
       '#options' => $this->throbberManager->getThrobberOptionList(),
       '#default_value' => ($settings->get('throbber')) ? $settings->get('throbber') : NULL,
       '#ajax' => array(
