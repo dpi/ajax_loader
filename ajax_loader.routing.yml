@@ -5,10 +5,3 @@ ajax_loader.settings:
     _title: 'Ajax loader'
   requirements:
     _permission: 'administer ajax loader'
-ajax_loader.test:
-  path: '/ajax-loader/test'
-  defaults:
-    _form: '\Drupal\ajax_loader\Form\AjaxLoaderTestForm'
-    _title: 'Ajax loader'
-  requirements:
-    _permission: 'administer ajax loader'

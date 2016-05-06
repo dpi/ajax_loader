@@ -29,4 +29,10 @@ interface ThrobberManagerInterface {
    */
   public function loadAllThrobberInstances();
 
+  /**
+   * Checks if ajax loader has to be included on current page.
+   * @return mixed
+   */
+  public function RouteIsApplicable();
+
 }

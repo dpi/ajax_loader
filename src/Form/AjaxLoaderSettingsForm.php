@@ -101,6 +101,13 @@ class AjaxLoaderSettingsForm extends ConfigFormBase {
       '#default_value' => ($settings->get('always_fullscreen')) ? $settings->get('always_fullscreen') : 0,
     );
 
+    $form['show_admin_paths'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Use ajax loader on admin pages'),
+      '#description' => t('Choose whether you also want to show the loader on admin pages or still like to use the default core loader.'),
+      '#default_value' => ($settings->get('show_admin_paths')) ? $settings->get('show_admin_paths') : 0,
+    );
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -121,6 +128,7 @@ class AjaxLoaderSettingsForm extends ConfigFormBase {
       ->set('throbber', $form_state->getValue('throbber'))
       ->set('hide_ajax_message', $form_state->getValue('hide_ajax_message'))
       ->set('always_fullscreen', $form_state->getValue('always_fullscreen'))
+      ->set('show_admin_paths', $form_state->getValue('show_admin_paths'))
       ->save();
 
     // Clear cache, so that library is picked up.
