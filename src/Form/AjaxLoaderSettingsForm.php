@@ -44,14 +44,14 @@ class AjaxLoaderSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
-    return ['ajax_throbber.settings'];
+    return ['ajax_loader.settings'];
   }
 
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $settings = $this->config('ajax_throbber.settings');
+    $settings = $this->config('ajax_loader.settings');
 
     $form['wrapper'] = array(
       '#prefix' => '<div id="throbber-wrapper">',
@@ -64,7 +64,7 @@ class AjaxLoaderSettingsForm extends ConfigFormBase {
       '#description' => t('Choose your throbber'),
       '#required' => TRUE,
       '#options' => $this->throbberManager->getThrobberOptionList(),
-      '#default_value' => ($settings->get('throbber')) ? $settings->get('throbber') : NULL,
+      '#default_value' => $settings->get('throbber'),
       '#ajax' => array(
         'wrapper' => 'throbber-wrapper',
         'callback' => array($this, 'ajaxThrobberChange'),
@@ -91,21 +91,21 @@ class AjaxLoaderSettingsForm extends ConfigFormBase {
       '#type' => 'checkbox',
       '#title' => t('Never show ajax loading message'),
       '#description' => t('Choose whether you want to hide the loading ajax message even when it is set.'),
-      '#default_value' => ($settings->get('hide_ajax_message')) ? $settings->get('hide_ajax_message') : 0,
+      '#default_value' => $settings->get('hide_ajax_message') ?: 0,
     );
 
     $form['always_fullscreen'] = array(
       '#type' => 'checkbox',
       '#title' => t('Always show loader as overlay (fullscreen)'),
       '#description' => t('Choose whether you want to show the loader as an overlay, no matter what the settings of the loader are.'),
-      '#default_value' => ($settings->get('always_fullscreen')) ? $settings->get('always_fullscreen') : 0,
+      '#default_value' => $settings->get('always_fullscreen') ?: 0,
     );
 
     $form['show_admin_paths'] = array(
       '#type' => 'checkbox',
       '#title' => t('Use ajax loader on admin pages'),
       '#description' => t('Choose whether you also want to show the loader on admin pages or still like to use the default core loader.'),
-      '#default_value' => ($settings->get('show_admin_paths')) ? $settings->get('show_admin_paths') : 0,
+      '#default_value' => $settings->get('show_admin_paths') ?: 0,
     );
 
     return parent::buildForm($form, $form_state);
@@ -124,7 +124,7 @@ class AjaxLoaderSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $this->config('ajax_throbber.settings')
+    $this->config('ajax_loader.settings')
       ->set('throbber', $form_state->getValue('throbber'))
       ->set('hide_ajax_message', $form_state->getValue('hide_ajax_message'))
       ->set('always_fullscreen', $form_state->getValue('always_fullscreen'))
