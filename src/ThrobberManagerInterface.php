@@ -18,8 +18,10 @@ interface ThrobberManagerInterface {
 
   /**
    * Loads an instance of a plugin by given plugin id.
+   *
    * @param $plugin_id
-   * @return object
+   *
+   * @return \Drupal\ajax_loader\ThrobberPluginInterface
    */
   public function loadThrobberInstance($plugin_id);
 

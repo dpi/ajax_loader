@@ -42,15 +42,12 @@ function ajax_loader_library_info_alter(&$libraries, $module) {
  */
 function ajax_loader_page_attachments(array &$page) {
   /** @var \Drupal\ajax_loader\ThrobberManager $throbber_manager */
-  $settings = \Drupal::config('ajax_throbber.settings');
   $throbber_manager = Drupal::service('ajax_loader.throbber_manager');
+  $settings = \Drupal::config('ajax_throbber.settings');
 
-  if (!empty($settings) && $throbber_manager->RouteIsApplicable()) {
-    /** @var \Drupal\ajax_loader\ThrobberManager $throbber_manager */
-    $throbber_manager = Drupal::service('ajax_loader.throbber_manager');
-
-    /** @var \Drupal\ajax_loader\ThrobberPluginInterface $throbber */
-    $throbber = $throbber_manager->loadThrobberInstance($settings->get('throbber'));
+  $throbber_id = $settings->get('throbber');
+  if ($throbber_manager->getDefinition($throbber_id, FALSE) && $throbber_manager->RouteIsApplicable()) {
+    $throbber = $throbber_manager->loadThrobberInstance($throbber_id);
     $settings = array(
       'markup' => $throbber->getMarkup(),
       'hideAjaxMessage' => $settings->get('hide_ajax_message'),
